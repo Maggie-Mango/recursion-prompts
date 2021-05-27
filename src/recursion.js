@@ -91,14 +91,28 @@ var range = function(x, y) {
   }
 
   //the === 2 part is specifically for getting the right amount of Nums for our array
-  if (y - x === 2) {
-    return [x + 1];
-  } else {
-    // 9, 8, 7, 6, 5,
-    var result = range(x, y - 1);
-    //push 4, 5, 6, 7, 8
-    result.push(y - 1);
+ if (y > x) {
+   if (y - x === 2) {
+      return [x + 1];
+    } else {
+      // 9, 8, 7, 6, 5,
+      var result = range(x, y - 1);
+      //push 4, 5, 6, 7, 8
+      result.push(y - 1);
+      return result;
+    }
+  }
+
+  if (x > y) {
+    if (x - y === 2) {
+      return [x - 1];
+    } else {
+    console.log(x)
+    var result = range(x - 1, y)
+    //9 8 7 6 5
+    result.unshift(x - 1)
     return result;
+    }
   }
 
 };
