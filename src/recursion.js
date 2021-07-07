@@ -23,14 +23,7 @@ var factorial = function(n) {
 // 2. Compute the sum of an array of integers.
 // sum([1,2,3,4,5,6]); // 21
 var sum = function(array) {
-  //condition ? value if true : value if false
-  //slice off the first one
-  //return array.length === 0 ? 0 : array[0] + (sum(array.slice(1)));
-  if (array.length === 0 ) {
-    return 0;
-  } else {
-    return array[0 + (sum(array.slice(1)))];
-  }
+  return array.length === 0 ? 0 : array[0] + sum(array.slice(1));
 };
 
 // 3. Sum all numbers in an array containing nested arrays.
@@ -198,18 +191,20 @@ var palindrome = function(string) {
 // modulo(17,5) // 2
 // modulo(22,6) // 4
 var modulo = function(x, y) {
-  //base case
+  if (x === 0 && y === 0) {
+    return NaN;
+  }
+  if (x < 0) { return -modulo(-x, y)};
+  if (y < 0) { return modulo(x, -y)};
   return x < y ? x : modulo(x - y, y);
-
-  //you need to subtract y from x
-  //when x is less than y
-  //return y
 
 };
 
 // 12. Write a function that multiplies two numbers without using the * operator or
 // Math methods.
+
 var multiply = function(x, y) {
+
 };
 
 // 13. Write a function that divides two numbers without using the / operator or
