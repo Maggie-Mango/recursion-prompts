@@ -89,8 +89,8 @@ var range = function(x, y) {
   }
 
   //the === 2 part is specifically for getting the right amount of Nums for our array
- if (y > x) {
-   if (y - x === 2) {
+if (y > x) {
+  if (y - x === 2) {
       return [x + 1];
     } else {
       // 9, 8, 7, 6, 5,
@@ -283,20 +283,26 @@ var gcd = function(x, y) {
 var compareStr = function(str1, str2) {
 
   if (str1.length === str2.length) {
-     return true;
-   }
+    return true;
+  }
 
 
-   if (str1[0] === str2[0]) {
-     return compareStr(str1.slice(1), str2.slice(1));
-   }
-   return false;
- };
+  if (str1[0] === str2[0]) {
+    return compareStr(str1.slice(1), str2.slice(1));
+  }
+    return false;
+};
 
 
 // 16. Write a function that accepts a string and creates an array where each letter
 // occupies an index of the array.
 var createArray = function(str) {
+  if (str.length === 1) {
+    return [str[0]];
+  }
+  var pushThis = createArray(str.slice(1));
+  pushThis.unshift(str[0]);
+  return pushThis;
 };
 
 // 17. Reverse the order of an array
